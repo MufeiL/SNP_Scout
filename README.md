@@ -1,7 +1,7 @@
-![Badge](https://img.shields.io/badge/language-python-purple)
 
 
 # SNP Scout
+![Badge](https://img.shields.io/badge/language-python-purple)
 This is a demonstration project for CSE 185. `SNP Scout` implements a simpler version of the SNP caller available through VarScan. See the [VarScan](https://varscan.sourceforge.net/using-varscan.html) page for more details.  
 # Install Instructions
 No additional libraries are required for installation. 
