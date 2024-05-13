@@ -1,13 +1,13 @@
 # chromosome, position, reference genome, matches
-chrTEST 3 C ^!. F
-chrTEST 4 T .^!. FH
-chrTEST 5 A .. FH
-chrTEST 6 G .. FH
-chrTEST 7 C .. FH
-chrTEST 8 T .. FH
-chrTEST 9 A .. FH
-chrTEST 10 C .G FH
-chrTEST 11 G .. FH
-chrTEST 12 T .$. FH
-chrTEST 13 A T$ H
+chrTEST  3  C  ^!. 
+chrTEST  4  T  .^!.
+chrTEST  5  A  ..
+chrTEST  6  G  ..
+chrTEST  7  C  ..
+chrTEST  8  T  ..
+chrTEST  9  A  ..
+chrTEST  10  C .G
+chrTEST  11  G  ..
+chrTEST  12  T  .$.
+chrTEST  13  A  T$ 
 
