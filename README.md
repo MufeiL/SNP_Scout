@@ -1,5 +1,5 @@
 
-![Static Badge](https://img.shields.io/badge/language-python-pink) ![Static Badge](https://img.shields.io/badge/license-UCSD-yellow) ![Static Badge](https://img.shields.io/badge/tools-VarScan-blue)
+![Static Badge](https://img.shields.io/badge/language-python-780000) ![Static Badge](https://img.shields.io/badge/language-JupyterNotebook-FDF0D5)![Static Badge](https://img.shields.io/badge/license-UCSD-C1121F) ![Static Badge](https://img.shields.io/badge/tools-VarScan-669BBC) 
 
 # SNP Scout
 
