@@ -1,4 +1,4 @@
-# chromosome, position, reference genome, matches
+# chromosome, position, reference genome, coverage, matches, states
 chrTEST	3	C	1	^!.	F
 chrTEST	4	T	2	.^!.	FH
 chrTEST	5	A	2	..	FH
