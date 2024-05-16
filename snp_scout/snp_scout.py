@@ -5,10 +5,10 @@ def snp_scout(m_file, var_freq, min_cov, out_file = None):
     output_handle = None
     if out_file:
         output_handle = open(out_file, "w")
-        header = "\t".join(["CHROM", "POS", "REF", "ALT", "FORMAT", "SAMPLE1"]) + "\n"
+        header = "\t".join(["#CHROM", "POS", "REF", "ALT", "FORMAT", "SAMPLE1"]) + "\n"
         output_handle.write(header)
     else:
-        print("\t".join(["CHROM", "POS", "REF", "ALT", "FORMAT", "SAMPLE1"]))
+        print("\t".join(["#CHROM", "POS", "REF", "ALT", "FORMAT", "SAMPLE1"]))
     
     with open(m_file, "r") as f:
         for line in f:
