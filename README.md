@@ -13,7 +13,7 @@ EDIT
 # SNP Scout Options
 The only required input to `SNP Scout` is a SAMtools pileup file. Users can specify additional options below:
 * `-m FREQ`, `--min_var_freq FREQ`: minimum variant allele frequency threshold. By default, 0.01 is used.
-* `-c COV`, `--min_coverage COV`: minimum read depth at a position to make a call for variants. By default, 0.8 is used.
+* `-c COV`, `--min_coverage COV`: minimum read depth at a position to make a call for variants. By default, 8 is used.
 * `-o FILE`, `--out FILE`: write output to the specified file. Otherwise, output is written to the terminal.   
 # File Format 
 The output file format is the same as the VarScan variant calling method. See the [VarScan](https://varscan.sourceforge.net/using-varscan.html) page for more details.
