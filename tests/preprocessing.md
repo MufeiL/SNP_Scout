@@ -19,5 +19,19 @@ Below is our example terminal command for downloading the region of chromosome 1
 ```samtools view -h https://ftp.sra.ebi.ac.uk/vol1/run/ERR323/ERR3239484/NA12778.final.cram chr17:68765882-69416314 > NA12778_chr17.cram```
 
 ### Converting CRAM files to BAM files using samtools
-Below we use samtools 
+We then converted our cram files to bam files similar to the example command below for sample NA12778:
+
+```samtools view -b -o NA18544_chr17.bam NA18544_chr17.cram```
+
+### Creating a mpileup file from the BAM files
+Using the three bam files along with the [hg38 human reference genome](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.26/) fasta file, we created a **mpileup** file that we can use as the input file for SNP Scout using the SAMtools mpileup command. 
+
+**mpileup terminal command:**
+
+```samtools mpileup -f Homo_sapiens_assembly38.fasta /file-path-to-bam/NA12778_chr17.bam /file-path-to-bam/NA12889_chr17.bam /file-path-to-bam/NA18544_chr17.bam > project.mpileup```
+
+**note that a downloaded index file for the fasta (ie. Homo_sapiens_assembly38.fasta.fai) is also required for this command to run. 
+
+**also note that this command was run in the CSE 185 jupyter notebook terminal in order to access the already downloaded hg38 reference fasta and it's corresponding index. 
+
 
