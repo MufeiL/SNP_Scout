@@ -6,7 +6,21 @@
 This is a demonstration project for CSE 185. `SNP Scout` implements a simpler version of the SNP caller available through VarScan. See the [VarScan](https://varscan.sourceforge.net/using-varscan.html) page for more details.  
 # Install Instructions
 No additional libraries are required for installation. 
-To install `SNP Scout`, you can use the following command:
+To install `SNP Scout`, access the directory where you want to install the tool and use the following command:
+```
+git clone https://github.com/MufeiL/SNP_Scout 
+```
+Then, change into the SNP_Scout directory and install the tool. You can use the following commands:
+```
+cd SNP_Scout
+```
+```
+pip install .
+```
+Alternatively, if you do not have root access, you can install ```SNP Scout``` by specifying additional options:
+```
+EDIT
+```
 # Basic Usage
 The basic usage of `SNP Scout` is given by the following:
 EDIT
