@@ -21,6 +21,9 @@ Alternatively, if you do not have root access, you can install ```SNP Scout``` b
 ```
 python setup.py install --user
 ```
+```
+export PATH=$PATH:/home/$USER/.local/bin
+```
 # Basic Usage
 The basic usage of `SNP Scout` is given by the following:
 EDIT
