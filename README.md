@@ -17,16 +17,25 @@ cd SNP_Scout
 ```
 pip install .
 ```
-Alternatively, if you do not have root access, you can install ```SNP Scout``` by specifying additional options:
-```
-python setup.py install --user
-```
+If your installation was successful, typing ``snp_scout --help`` in any directory should print a helpful message. Otherwise, you may need to specify the path for the package. You can do this with the following command:
 ```
 export PATH=$PATH:/home/$USER/.local/bin
 ```
 # Basic Usage
 The basic usage of `SNP Scout` is given by the following:
-EDIT
+```
+snp_scout [-m min-freq] [-c min-coverage] [-o output file path] mpileup file
+```
+To run `SNP Scout` on a small test dataset, use the following command in the SNP_Scout directory:
+```
+snp_scout example-files/test_short_mpileup.txt -c 1
+```
+This should produce the following output:
+```
+#CHROM  POS     REF     ALT     FORMAT  SAMPLE1
+chrTEST 10      C       G       GT      0/1
+chrTEST 13      A       T       GT      1/1
+```
 # SNP Scout Options
 The only required input to `SNP Scout` is a SAMtools pileup file. Users can specify additional options below:
 * `-m FREQ`, `--min_var_freq FREQ`: minimum variant allele frequency threshold. By default, 0.01 is used.
