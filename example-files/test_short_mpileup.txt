@@ -10,4 +10,3 @@ chrTEST	10	C	2	.G	FH
 chrTEST	11	G	2	..	FH
 chrTEST	12	T	2	..	FH
 chrTEST	13	A	1	T	H
-
