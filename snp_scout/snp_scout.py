@@ -25,7 +25,7 @@ def snp_scout(m_file, var_freq, min_cov, min_reads2, min_homo, out_file = None):
 
                 # Calculate variant frequency
                 tot_var = sum(1 for base in reads if base not in (',', '.', '!', '$', '^')) #total variants per line
-                freq = tot_var / max(1, coverage)
+                freq = tot_var / max(1, coverage) #variant frequency
                 if freq >= var_freq and coverage >= min_cov and tot_var >= min_reads2: #to consider for variant calling
                     alt_allele_str = ','.join(alt_alleles) if alt_alleles else "N/A" #get alt allele(s)
                     
@@ -37,9 +37,9 @@ def snp_scout(m_file, var_freq, min_cov, min_reads2, min_homo, out_file = None):
                         gt = "1/1" #homozygous for alt
 
                     if output_handle:
-                        output_handle.write(f"{chromosome}\t{position}\t{reference_base}\t{alt_allele_str}\tGT\t{gt}\n")
+                        output_handle.write(f"{chromosome}\t{position}\t{reference_base}\t{alt_allele_str}\tGT:DP\t{gt}:{coverage}\n")
                     else:
-                        print(f"{chromosome}\t{position}\t{reference_base}\t{alt_allele_str}\tGT\t{gt}")
+                        print(f"{chromosome}\t{position}\t{reference_base}\t{alt_allele_str}\tGT:DP\t{gt}:{coverage}")
     if output_handle:
         output_handle.close()
 
