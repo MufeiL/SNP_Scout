@@ -19,7 +19,7 @@ pip install .
 ```
 Alternatively, if you do not have root access, you can install ```SNP Scout``` by specifying additional options:
 ```
-EDIT
+python setup.py install --user
 ```
 # Basic Usage
 The basic usage of `SNP Scout` is given by the following:
