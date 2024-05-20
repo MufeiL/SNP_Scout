@@ -37,9 +37,9 @@ def snp_scout(m_file, var_freq, min_cov, min_reads2, min_homo, out_file = None):
                         gt = "1/1" #homozygous for alt
 
                     if output_handle:
-                        output_handle.write(f"{chromosome}\t{position}\t{reference_base}\t{alt_allele_str}\tGT:DP\t{gt}:{coverage}\n")
+                        output_handle.write(f"{chromosome}\t{position}\t{reference_base}\t{alt_allele_str}\tGT:SDP:FREQ\t{gt}:{coverage}:{freq*100}%\n")
                     else:
-                        print(f"{chromosome}\t{position}\t{reference_base}\t{alt_allele_str}\tGT:DP\t{gt}:{coverage}")
+                        print(f"{chromosome}\t{position}\t{reference_base}\t{alt_allele_str}\tGT:SDP:FREQ\t{gt}:{coverage}:{freq*100}%")
     if output_handle:
         output_handle.close()
 
