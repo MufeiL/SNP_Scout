@@ -60,4 +60,5 @@ def main():
     out_file = args.out #name of output file (if included)
     snp_scout(pileup_file, var_freq, min_cov, out_file)
 
-main()
+if __name__ == "__main__":
+    main()
