@@ -14,17 +14,17 @@ def snp_scout(m_file, var_freq, min_cov, min_reads2, min_homo, out_file = None):
         for line in f:
             if "#" not in line: #skip header lines
                 columns = line.strip().split('\t') #split line into columns
-                chromosome = columns[0]
-                position = columns[1]
+                chromosome = columns[0] #name of chrom
+                position = columns[1] #position on chrom
                 reference_base = columns[2]
-                coverage = int(columns[3])
-                reads = columns[4]
+                coverage = int(columns[3]) #read depth
+                reads = columns[4] #actual reads
 
-                # Count alternate alleles
-                alt_alleles = [base.upper() for base in reads if base.upper() not in (',', '.', '!', '$', '^') and base.upper() != reference_base.upper()]
+                # Get alternate alleles
+                alt_alleles = [base.upper() for base in reads if base.upper() not in (',', '.', '!', '$', '^', ']') and base.upper() != reference_base.upper()]
 
                 # Calculate variant frequency
-                tot_var = sum(1 for base in reads if base not in (',', '.', '!', '$', '^')) #total variants per line
+                tot_var = sum(1 for base in reads if base not in (',', '.', '!', '$', '^', ']') and base.upper() != reference_base.upper()) #total variants per line
                 freq = tot_var / max(1, coverage) #variant frequency
                 if freq >= var_freq and coverage >= min_cov and tot_var >= min_reads2: #to consider for variant calling
                     alt_allele_str = ','.join(alt_alleles) if alt_alleles else "N/A" #get alt allele(s)
