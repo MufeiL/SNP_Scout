@@ -23,15 +23,15 @@ def snp_scout(m_file, var_freq, min_cov, min_reads2, min_homo, out_file = None):
                 reads = columns[4] #actual reads
 
                 # Get alternate alleles
-                alt_alleles = set(base.upper() for base in reads if base.upper() != reference_base.upper() and base in nucs)
+                alt_alleles = set(base.upper() for base in reads if base.upper() != reference_base.upper() and base.upper() in nucs)
 
                 # Calculate variant frequency
-                tot_var = sum(1 for base in reads if base not in (',', '.', '!', '$', '^', ']') and base.upper() != reference_base.upper() and base in nucs) #total variants per line
+                tot_var = sum(1 for base in reads if base.upper() != reference_base.upper() and base.upper() in nucs) #total variants per line
                 freq = tot_var / max(1, coverage) #variant frequency
                 if freq >= var_freq and coverage >= min_cov and tot_var >= min_reads2: #to consider for variant calling
                     alt_allele_str = ','.join(alt_alleles) if alt_alleles else "N/A" #get alt allele(s)
                     
-                    if alt_allele_str == reference_base: #get genotype (assuming we only have 1 alt base)
+                    if alt_allele_str == reference_base: #get genotype
                         gt = "0/0" #homozygous
                     elif alt_allele_str != reference_base and (',' in reads or '.' in reads) and freq < min_homo:
                         gt = "0/1" #heterozygous
