@@ -1,1 +1,36 @@
+#download varscan, run against the child mpileup, store the result in this folder
+
+#downloading workflow
+#to download varscan:
+curl -L https://sourceforge.net/projects/varscan/files/VarScan.v2.3.9.jar/download > VarScan.jar
+
+#bring up the help message:
+java -jar VarScan.jar
+java -jar VarScan.jar mpileup2snp -h
+
+#to run varscan on the child mpileup (to turn off the default: setting p value to 1, and quality score to 0, strand filter to 0):
+java -jar VarScan.jar mpileup2snp NA12878_child.mpileup --p-value 1 --min-avg-qual 0 --strand-filter 0 --min-var-frequency 0.01 --min-freq-for-hom 0.75 --min_coverage 8 --min_reads2 2 --output-vcf 1 --variants > bench_child_no_default.vcf
+
+# to run varscan on the child mpileup WITHOUT turning off the default
+java -jar VarScan.jar mpileup2snp NA12878_child.mpileup --min-var-frequency 0.01 --min-freq-for-hom 0.75 --min_coverage 8 --min_reads2 2 --output-vcf 1 --variants > bench_child.vcf
+
+# use -- hom0.8 and --var0.2
+java -jar VarScan.jar mpileup2snp NA12878_child.mpileup --p-value 1 --min-avg-qual 0 --strand-filter 0 --min-var-frequency 0.2 --min-freq-for-hom 0.8 --min_coverage 8 --min_reads2 2 --output-vcf 1 --variants > bench_child_hom.vcf
+
+#running varscan with the following options (to match our snp scout defaults)
+-m --min_var_freq 0.01
+-f --min_freq_for_homo 0.75
+-c --min_coverage 8
+-r --min_reads2 2
+
+
+
+# testing using snp_scout and compare if we get the same output:
+snp_scout -m 0.01 -f 0.75 -c 8 -r 2 -o /Users/mufeili/Desktop/test_child_new.txt /Users/mufeili/Desktop/NA12878_child.mpileup
+
+# count the number of lines
+tail -n +2 /Users/mufeili/Desktop/test_child_new.txt | wc -l
+
+# change to 0.2 and 0.8
+snp_scout -m 0.2 -f 0.8 -c 8 -r 2 -o /Users/mufeili/Desktop/test_child_hom.txt /Users/mufeili/Desktop/NA12878_child.mpileup
 
