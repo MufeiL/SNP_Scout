@@ -23,7 +23,7 @@ def snp_scout(m_file, var_freq, min_cov, min_reads2, min_homo, out_file = None):
                 reads = columns[4] #actual reads
 
                 # Get alternate alleles
-                alt_alleles = [base.upper() for base in reads if base.upper() not in (',', '.', '!', '$', '^', ']') and base.upper() != reference_base.upper() and base in nucs]
+                alt_alleles = set(base.upper() for base in reads if base.upper() != reference_base.upper() and base in nucs)
 
                 # Calculate variant frequency
                 tot_var = sum(1 for base in reads if base not in (',', '.', '!', '$', '^', ']') and base.upper() != reference_base.upper() and base in nucs) #total variants per line
