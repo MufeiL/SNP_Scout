@@ -32,9 +32,9 @@ snp_scout example-files/test_short_mpileup.txt -c 1 -r 1
 ```
 This should produce the following output:
 ```
-#CHROM  POS     REF     ALT     FORMAT  SAMPLE1
-chrTEST 10      C       G       GT:SDP:FREQ     0/1:2:50.0%
-chrTEST 13      A       T       GT:SDP:FREQ     1/1:1:100.0%
+#CHROM	POS	ID	REF	ALT	FILTER	INFO	FORMAT	SAMPLE1
+chrTEST	10	.	C	G	PASS	WT=0;HET=1;HOM=0	GT:SDP:FREQ	0/1:2:50.0%
+chrTEST	13	.	A	T	PASS	WT=0;HET=0;HOM=1	GT:SDP:FREQ	1/1:1:100.0%
 ```
 # SNP Scout Options
 The only required input to `SNP Scout` is a SAMtools pileup file. Users can specify additional options below:
