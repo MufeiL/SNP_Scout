@@ -27,7 +27,7 @@ The basic usage of `SNP Scout` is given by the following:
 ```
 snp_scout [-m min freq] [-c min coverage] [-r min reads2] [-f min homo freq] [-o output file] mpileup file
 ```
-To run `SNP Scout` on a small test dataset, use the following command in the SNP_Scout directory:
+To run `SNP Scout` on a small test dataset, use the following command in the `SNP_Scout` directory:
 ```
 snp_scout example-files/test_short_mpileup.txt -c 1 -r 1
 ```
@@ -37,6 +37,7 @@ This should produce the following output:
 chrTEST	10	.	C	G	PASS	WT=0;HET=1;HOM=0	GT:SDP:FREQ	0/1:2:50.0%
 chrTEST	13	.	A	T	PASS	WT=0;HET=0;HOM=1	GT:SDP:FREQ	1/1:1:100.0%
 ```
+Note that if you are in another directory, you will need to change the path for the above mpileup file in order to run the example test.
 # SNP Scout Options
 The only required input to `SNP Scout` is a SAMtools pileup file. Users can specify additional options below:
 * `-m`, `--min_var_freq`: minimum variant allele frequency threshold. By default, 0.01 is used.
