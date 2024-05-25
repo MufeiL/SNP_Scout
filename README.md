@@ -10,17 +10,18 @@ To install `SNP Scout`, access the directory where you want to install the tool 
 ```
 git clone https://github.com/MufeiL/SNP_Scout 
 ```
-Then, change into the SNP_Scout directory and install the tool. You can use the following commands:
+Then, change into the `SNP_Scout` directory and install the tool. You can use the following commands:
 ```
 cd SNP_Scout
 ```
 ```
 pip install .
 ```
-If your installation was successful, typing ``snp_scout --help`` in any directory should print a helpful message. Otherwise, you may need to specify the path for the package. You can do this with the following command:
+If your installation was successful, typing ``snp_scout --help`` should print a helpful message. Otherwise, you may need to specify the path for the package. You can do this with the following command:
 ```
 export PATH=$PATH:/home/$USER/.local/bin
 ```
+Note that if you close the terminal and re-open it at a later time, you may need to re-export the path with the above command in order to run the tool.
 # Basic Usage
 The basic usage of `SNP Scout` is given by the following:
 ```
