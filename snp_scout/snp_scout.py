@@ -1,5 +1,8 @@
 import argparse
 
+def has_number(s): #to check if a read contains non-bases
+    return any(char.isdigit() for char in s)
+
 #function to perform variant calling
 def snp_scout(m_file, var_freq, min_cov, min_reads2, min_homo, out_file = None):
     output_handle = None
@@ -22,18 +25,25 @@ def snp_scout(m_file, var_freq, min_cov, min_reads2, min_homo, out_file = None):
                 coverage = int(columns[3]) #read depth
                 reads = columns[4] #actual reads
 
+                if has_number(reads) == True: #if reads contain numbers
+                    continue
                 # Get alternate alleles
+                allele_dict = {} #to store count of alternate alleles
                 alt_alleles = set(base.upper() for base in reads if base.upper() != reference_base.upper() and base.upper() in nucs)
+                for a in alt_alleles:
+                    a_count = sum(1 for base in reads if base.upper() == a)
+                    allele_dict[a] = a_count
+        
                 het = 0 #labels for what type of sample/gt we have
                 homo = 0
                 wt = 0
-                filt = "fail" #filter
+                filt = "fail" #get status for filter
                 # Calculate variant frequency
                 tot_var = sum(1 for base in reads if base.upper() != reference_base.upper() and base.upper() in nucs) #total variants per line
                 freq = tot_var / max(1, coverage) #variant frequency
                 if freq >= var_freq and coverage >= min_cov and tot_var >= min_reads2: #to consider for variant calling
                     filt = "PASS"
-                    alt_allele_str = ','.join(alt_alleles) if alt_alleles else "N/A" #get alt allele(s)
+                    alt_allele_str = max(allele_dict, key=allele_dict.get) #get 1 al allele (one w/ max count)
                     
                     if alt_allele_str == reference_base: #get genotype
                         gt = "0/0" #homozygous
@@ -46,7 +56,6 @@ def snp_scout(m_file, var_freq, min_cov, min_reads2, min_homo, out_file = None):
                         homo +=1
                     
                     info_str = f"WT={wt};HET={het};HOM={homo}" #string for info header
-                    #WT=0;HET=0;HOM=3
                     if output_handle:
                         output_handle.write(f"{chromosome}\t{position}\t.\t{reference_base}\t{alt_allele_str}\t{filt}\t{info_str}\tGT:SDP:FREQ\t{gt}:{coverage}:{freq*100}%\n")
                     else:
