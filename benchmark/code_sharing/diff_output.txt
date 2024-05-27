@@ -3,4 +3,5 @@ command to check the differences: diff <(cut -f2 /Users/mufeili/Desktop/varsca
 128446747
 128537687
   reads in mpileup from those positions:
-chr6	128446747	c	40	,.,,,.,,,........,.t.....tt.t..tt..t..-1Tt.	CDC;FEF:<FHIIIIJJ?J5C?JG9;5H8AJ05JJ8DH>F chr6	128537687	t	37	,$....a.,.,aaaa....,,a......a.+1A.,.aa.^].^].	8DDDB/?6D6///8JHJJ207IGJIJG9JH8F53F@@
+chr6	128446747	c	40	,.,,,.,,,........,.t.....tt.t..tt..t..-1Tt.	CDC;FEF:<FHIIIIJJ?J5C?JG9;5H8AJ05JJ8DH>F 
+chr6	128537687	t	37	,$....a.,.,aaaa....,,a......a.+1A.,.aa.^].^].	8DDDB/?6D6///8JHJJ207IGJIJG9JH8F53F@@
