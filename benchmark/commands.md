@@ -43,7 +43,7 @@ Command to run for SNP Scout:
 ```
 /home/mul009/memusg/memusg snp_scout -m 0.2 -f 0.8 -c 8 -r 2 NA12878_child.mpileup
 ```
-Command to run for SNP Scout: 
+Command to run for VarScan: 
 ```
 /home/mul009/memusg/memusg java -jar VarScan.jar mpileup2snp NA12878_child.mpileup --p-value 1 --min-avg-qual 0 --strand-filter 0 --min-var-frequency 0.2 --min-freq-for-hom 0.8 --min_coverage 8 --min_reads2 2 --output-vcf 1 --variants > bench_child_hom.vcf
 ```
