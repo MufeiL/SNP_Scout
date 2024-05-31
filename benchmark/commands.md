@@ -35,10 +35,8 @@ VarScan:
 ```
 time java -jar VarScan.jar mpileup2snp NA12878_child.mpileup --p-value 1 --min-avg-qual 0 --strand-filter 0 --min-var-frequency 0.2 --min-freq-for-hom 0.8 --min_coverage 8 --min_reads2 2 --output-vcf 1 --variants > bench_child_hom.vcf
 ```
-To see the memory consumption, we utilized this Github Repo. The ```memusg [command]``` could be used after we git clone into the repository and be in the same directory as the memusg file. Note that you may have to change the file paths if running on a personal device.
-```
-https://github.com/jhclark/memusg
-```
+To see the memory consumption, we utilized this Github Repo: https://github.com/jhclark/memusg. The ```memusg [command]``` could be used after we git clone into the repository and be in the same directory as the memusg file. Note that you may have to change the file paths if running on a personal device.
+
 Command to run for SNP Scout: 
 ```
 /home/mul009/memusg/memusg snp_scout -m 0.2 -f 0.8 -c 8 -r 2 NA12878_child.mpileup
